@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 module "s3_backend" {
-  source = "https://github.com/srikarna18/terraform-projects.git/control-tower/modules/s3_backend_setup"  # Replace this with your actual module source path
+  source = "git::https://github.com/srikarna18/terraform-projects.git/control-tower/modules/s3_backend_setup"  # Replace this with your actual module source path
   
   bucket_name        = "my-tfstate-bucket"  # Replace with your desired S3 bucket name
   region             = "us-west-2"  # AWS Region
