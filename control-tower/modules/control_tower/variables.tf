@@ -1,5 +1,6 @@
-variable "region" {}
-variable "organization_email" {}
-variable "log_archive_account_id" {}
-variable "audit_account_id" {}
-variable "enable_account_factory" {}
+variable "account_name" {}
+variable "account_email" {}
+variable "ssouser_email" {}
+variable "ssouser_firstname" {}
+variable "ssouser_lastname" {}
+variable "managed_ou" {}
