@@ -1,0 +1,13 @@
+region              = "us-west-2"
+vpc_cidr            = "10.0.0.0/16"
+public_subnets      = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnets     = ["10.0.3.0/24", "10.0.4.0/24"]
+db_subnets          = ["10.0.5.0/24", "10.0.6.0/24"]
+azs                 = ["us-west-2a", "us-west-2b"]
+environment         = "dev"
+instance_type       = "t3.micro"
+ami_id              = "ami-12345678"
+db_instance_class   = "db.t3.micro"
+db_username         = "admin"
+db_password         = "adminpassword"
+db_name             = "mydb"
