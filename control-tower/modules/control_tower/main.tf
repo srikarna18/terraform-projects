@@ -1,13 +1,14 @@
-provider "aws" {
-  region = var.region
+resource "aws_organizations_account" "workload_account" {
+  name  = var.account_name
+  email = var.account_email
+  role_name = "OrganizationAccountAccessRole"
 }
 
-module "aft" {
-  source  = "aws-ia/control-tower-account-factory/aws"
-  version = "1.9.1"
-
-  control_tower_enabled   = true
-  log_archive_account_id  = var.log_archive_account_id
-  audit_account_id        = var.audit_account_id
-  aft_management_account_email = var.organization_email
+resource "aws_controltower_account_factory" "account" {
+  account_name = var.account_name
+  email        = var.account_email
+  ssouser_email = var.ssouser_email
+  ssouser_firstname = var.ssouser_firstname
+  ssouser_lastname = var.ssouser_lastname
+  managed_ou = var.managed_ou
 }
