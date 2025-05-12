@@ -1,13 +1,13 @@
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket" # change to a globally unique name
+  bucket = var.s3_bucket_name
 
   tags = {
     Name        = "Terraform State Bucket"
-    Environment = "dev"
+    Environment = var.bucket_environment
   }
 
   lifecycle {
@@ -55,5 +55,16 @@ output "s3_bucket_region" {
 }
 
 variable "aws_region" {
-  default = "us-east-1"
+  description = "AWS region to create the S3 backend bucket in"
+  type        = string
+}
+
+variable "s3_bucket_name" {
+  description = "Globally unique name for the S3 backend bucket"
+  type        = string
+}
+
+variable "bucket_environment" {
+  description = "Environment tag for the bucket (e.g. dev, prod)"
+  type        = string
 }
