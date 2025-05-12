@@ -1,7 +1,17 @@
-variable "region" {}
-variable "organization_email" {}
-variable "log_archive_account_id" {}
-variable "audit_account_id" {}
-variable "enable_account_factory" {
-  default = true
+variable "account_name" {}
+variable "account_email" {}
+variable "ssouser_email" {}
+variable "ssouser_firstname" {}
+variable "ssouser_lastname" {}
+variable "managed_ou" {}
+
+variable "vpc_cidr" {}
+variable "private_subnets" {
+  type = list(string)
 }
+variable "azs" {
+  type = list(string)
+}
+
+variable "ami" {}
+variable "instance_type" {}
