@@ -1,3 +1,3 @@
-output "aft_account_factory_arn" {
-  value = module.aft.aft_account_factory_arn
+output "account_id" {
+  value = aws_organizations_account.workload_account.id
 }
